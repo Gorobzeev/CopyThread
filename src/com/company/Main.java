@@ -8,8 +8,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
 
-        String dir1 = "D://MyProjects//CopyThread//old";
-        String dir2 = "D://MyProjects//CopyThread//new";
+        String dir1 = args[0];
+        String dir2 = args[1];
         copyFilesDir(dir1,dir2);
 
     }
