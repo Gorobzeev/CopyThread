@@ -16,7 +16,7 @@ public class  RunCopy implements Runnable {
 
     @Override
     public void run() {
-        byte buffer[] = new byte[100000000];
+        byte buffer[] = new byte[1024];
         try {
             FileInputStream fileIn = new FileInputStream(in);
             int bytes = fileIn.read(buffer,0,100000000);
