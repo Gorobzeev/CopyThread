@@ -21,27 +21,14 @@ public class Main {
         for ( int i = 0; i < list.length; i++){
             File f = new File (dir1 +"//"+ list[i].getName());
             File f2 = new File (dir2 +"//"+ list[i].getName());
-            copyFile(f,f2);
-            System.out.println("Файл " + list[i] + " скопирован в директорию " +dir2);
+            Thread t = new Thread(new RunCopy(f,f2));
+            t.start();
+            System.out.println("File " + list[i] + " has been copy " +dir2);
 
         }
     }
 
-    public static void copyFile(File in, File out) throws IOException {
 
-
-        byte buffer[] = new byte[100000000];
-        try {
-            FileInputStream fileIn = new FileInputStream(in);
-            int bytes = fileIn.read(buffer,0,100000000);
-            fileIn.close();
-
-            FileOutputStream fileOut = new FileOutputStream(out);
-            fileOut.write(buffer,0,bytes);
-            fileOut.close();
-        }
-        catch (Exception e) {
-
-        }
-    }
 }
+
+
